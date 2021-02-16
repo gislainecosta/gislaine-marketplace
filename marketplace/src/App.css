@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* font-family: 'Kalam', cursive; */
+  font-family: "Capriola", sans-serif;
+  font-size: 16px;
+}
+
+#app {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  background-color: #f9eaff;
+  color: #16011d;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  width: 100vw;
+  min-height:  100vh;
+}
+
+#body{
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100vw;
+}
