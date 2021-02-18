@@ -1,17 +1,18 @@
+import React from 'react';
+import { Provider } from 'react-redux';
+import store from './store';
+
+import Router from './router/Router';
+
 import './App.css';
-import Header from './components/Header';
 
 function App() {
   return (
-    <div id="app">
-      <Header />
-      <section id="body">
-        
-
-
-      </section>
-
-    </div>
+    <Provider store={store}>
+      <div id="app">
+        <Router />
+      </div>
+    </Provider>
   );
 }
 

@@ -1,6 +1,8 @@
 import React from 'react';
-import styled from 'styled-components';
+import { useHistory } from 'react-router-dom';
 import * as St from './style';
+import styled from 'styled-components';
+
 import { makeStyles } from '@material-ui/core/styles';
 import Logo from '../../assets/Logo.png';
 import CartIcon from '@material-ui/icons/ShoppingCartSharp';
@@ -76,7 +78,14 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Header = () => {
+    let history = useHistory()
     const classes = useStyles();
+    
+    const goToCart = () => { history.push('cart') }
+
+    const goToFavorites = () => { history.push('favorites') }
+
+    const goToContact = () => { history.push('conatct') }
 
     return (
         <St.Header>
@@ -94,17 +103,17 @@ const Header = () => {
             </St.SearchWrapper>
 
             <section>
-                <IconButton aria-label="Carrinho">
+                <IconButton aria-label="Carrinho" onClick={goToCart}>
                     <Badge badgeContent={17} color="secondary">
                         <Cart style={{ fontSize: 50 }} />
                     </Badge>
                 </IconButton>
 
-                <IconButton aria-label="Favoritos">
+                <IconButton aria-label="Favoritos" onClick={goToFavorites}>
                     <Favorite style={{ fontSize: 30 }} />
                 </IconButton>
 
-                <IconButton aria-label="Contato">
+                <IconButton aria-label="Contato" onClick={goToContact}>
                     <Contact style={{ fontSize: 30 }} />
                 </IconButton>
             </section>
