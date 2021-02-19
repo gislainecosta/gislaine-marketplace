@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Header = styled.div`
-    width: 100vw;
+    width: 100%;
     padding: 0 2%;
     display: flex;
     justify-content: space-between;
@@ -9,7 +9,10 @@ export const Header = styled.div`
     color: #bc7ffb;
     align-items: center;
    height: 14vh;
-   position: static;
+   position: fixed;
+   top: 0px;
+   left: 0px;
+   z-index: 10;
    box-shadow: 0px 2px 4px 0px rgba(50, 50, 50, 0.75)
 `
 
