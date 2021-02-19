@@ -9,7 +9,6 @@ import StoreIcon from '@material-ui/icons/Store';
 import RedeemIcon from '@material-ui/icons/Redeem';
 import CreditCardIcon from '@material-ui/icons/CreditCard';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import DeleteIcon from '@material-ui/icons/Delete';
 
 const Navigation = () => {
     const [state, setState] = React.useState({

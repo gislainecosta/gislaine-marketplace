@@ -1,41 +1,18 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import * as St from './style';
 import styled from 'styled-components';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Logo from '../../assets/Logo.png';
 import CartIcon from '@material-ui/icons/ShoppingCartSharp';
-import FavoriteIcon from '@material-ui/icons/Favorite';
 import IconButton from '@material-ui/core/IconButton';
 import InputBase from '@material-ui/core/InputBase';
 import Badge from '@material-ui/core/Badge';
 import SearchIcon from '@material-ui/icons/Search';
-import ContactIcon from '@material-ui/icons/HeadsetMic';
-
 
 const Cart = styled(CartIcon)`
-    color:#f0d2fc;
-    cursor: pointer;
-    &&{
-      :hover{
-        color: #bc7ffb;
-        transform: scale(1.1);
-      }
-    }
-`
-
-const Contact = styled(ContactIcon)`
-    color:#f0d2fc;
-    cursor: pointer;
-    &&{
-      :hover{
-        color: #bc7ffb;
-        transform: scale(1.1);
-      }
-    }
-`
-const Favorite = styled(FavoriteIcon)`
     color:#f0d2fc;
     cursor: pointer;
     &&{
@@ -78,14 +55,16 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Header = () => {
+    const cart = useSelector(state => state.cart)
     let history = useHistory()
     const classes = useStyles();
-    
+    const [ cartNumber, setCartNumber ] = useState("0")
     const goToCart = () => { history.push('cart') }
 
-    const goToFavorites = () => { history.push('favorites') }
-
-    const goToContact = () => { history.push('conatct') }
+    useEffect(() =>{
+        const itensCart = cart.length
+        setCartNumber(itensCart.toString())
+    }, [cart])
 
     return (
         <St.Header>
@@ -104,18 +83,10 @@ const Header = () => {
 
             <section>
                 <IconButton aria-label="Carrinho" onClick={goToCart}>
-                    <Badge badgeContent={17} color="secondary">
+                    <Badge badgeContent={cartNumber} color="secondary">
                         <Cart style={{ fontSize: 50 }} />
                     </Badge>
-                </IconButton>
-
-                <IconButton aria-label="Favoritos" onClick={goToFavorites}>
-                    <Favorite style={{ fontSize: 30 }} />
-                </IconButton>
-
-                <IconButton aria-label="Contato" onClick={goToContact}>
-                    <Contact style={{ fontSize: 30 }} />
-                </IconButton>
+                </IconButton>            
             </section>
         </St.Header>
     );

@@ -1,13 +1,13 @@
 #app {
   overflow-x: hidden !important;
   box-sizing: border-box;
-  background-color: #f9eaff;
+  background-color: #ffffff;
   color: #16011d;
   width:100%;
-  min-height:  100vh;
+  height:  100vh;
 }
 
 
 #testeColor{
-  color: #790aa1
+  color:  #280035
 }

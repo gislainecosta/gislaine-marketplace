@@ -21,7 +21,7 @@ export const ButtomDelete = withStyles({
          color:'#45065c',
          transform: 'scale(1.02)'
       },
-      marginLeft: '20% !important'
+      marginLeft: '32% !important'
    }
 })((props) => <IconButton color="default" {...props} />);
 
@@ -32,7 +32,7 @@ export const IconDelete = withStyles({
 })((props) => <DeleteIcon color="default" {...props} />);
 
 export const Navigation = styled.div`
-   width: 25%;
+   width: 20%;
    display: flex;
    flex-direction: column;
    justify-content: space-between;
@@ -40,7 +40,11 @@ export const Navigation = styled.div`
    position: static;
    border-right: 1px solid #0e0012;
    margin-right: 4vw;
-   padding: 1vw 0.1vw 2vw 0;
+   position: fixed;
+   top:18vh;
+   left: 0px;
+   z-index: 1;
+   padding: 1vw 0.1vw 2vw 2vw;
 `
 export const Title = styled.div`
    display: flex;
