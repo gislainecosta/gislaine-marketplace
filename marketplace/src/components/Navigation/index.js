@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from "react-router";
 import * as St from './style';
+import { useSelector } from 'react-redux';
 
 import TuneIcon from '@material-ui/icons/Tune';
 import ColorLensIcon from '@material-ui/icons/ColorLens';
@@ -11,13 +12,11 @@ import CreditCardIcon from '@material-ui/icons/CreditCard';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 const Navigation = () => {
-    const [state, setState] = React.useState({
-        aVista: false,
-        parcelado: false,
-    });
+    const products = useSelector(state => state.products)
+    const sizes = useSelector(state => state.sizes)
+    const [state, setState] = useState({ });
 
     let history = useHistory();
-
 
     const goToHome = () => {
         history.push('/')
@@ -26,6 +25,8 @@ const Navigation = () => {
     const handleChange = (event) => {
         setState({ ...state, [event.target.name]: event.target.checked });
     };
+
+    console.log(state)
 
     return (
         <St.Navigation>
@@ -53,6 +54,16 @@ const Navigation = () => {
                         <StraightenIcon style={{ fontSize: 20 }} />
                         <St.FilterSubtitle>Tamanho</St.FilterSubtitle>
                     </St.FilterCategoryTitle>
+                    <St.FilterBody>
+                        {
+                           sizes.map((size) => {
+                                return <FormControlLabel
+                                    control={<St.InputCheckbox key={size} checked={size.checked} onChange={handleChange} name={size} />}
+                                    label={size}
+                                />
+                            })
+                        }
+                    </St.FilterBody>
                 </St.FilterCategory>
 
                 <St.FilterCategory>
@@ -60,6 +71,16 @@ const Navigation = () => {
                         <ColorLensIcon style={{ fontSize: 20 }} />
                         <St.FilterSubtitle>Cores</St.FilterSubtitle>
                     </St.FilterCategoryTitle>
+                    <St.FilterBody>
+                        {
+                            products.map((product) => {
+                                return <FormControlLabel
+                                    control={<St.InputCheckbox key={product.style} checked={product.checked} onChange={handleChange} name={product.color} />}
+                                    label={product.color}
+                                />
+                            })
+                        }
+                    </St.FilterBody>
                 </St.FilterCategory>
 
                 <St.FilterCategory>
@@ -67,7 +88,7 @@ const Navigation = () => {
                         <CreditCardIcon style={{ fontSize: 20 }} />
                         <St.FilterSubtitle>Forma de Pagamento</St.FilterSubtitle>
                     </St.FilterCategoryTitle>
-                    
+
                     <St.FilterBody>
                         <FormControlLabel
                             control={<St.InputCheckbox checked={state.aVista} onChange={handleChange} name="aVista" />}
@@ -80,8 +101,8 @@ const Navigation = () => {
                     </St.FilterBody>
                 </St.FilterCategory>
             </St.Filter>
-                
-            
+
+
         </St.Navigation>
     );
 }

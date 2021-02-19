@@ -24,7 +24,16 @@ const Home = () => {
                 }
                 }
             >
+                
                 <St.PhotoContainer>
+                    {
+                        product.on_sale === true ?
+                            <St.Sale>
+                                <p>{product.discount_percentage}</p>
+                                <p>OFF</p>
+                            </St.Sale> :
+                            <></>
+                    }
                     <St.PhotoProduct src={product?.image !== "" ? product?.image : noPhotoProduct} alt={product.name} />
                 </St.PhotoContainer>
                 <St.ProductData>
@@ -34,7 +43,7 @@ const Home = () => {
                 </St.ProductData>
             </St.Product>
         }))
-        
+
     }, [products])
 
     return (

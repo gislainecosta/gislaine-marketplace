@@ -5,7 +5,6 @@ export const Home = styled.div`
    display: grid;
    justify-content: space-between;
    padding: 1vw 0.1vw 2vw 0;
-   margin-left: 22%;
    grid-template-columns: 1fr 1fr 1fr;
 `
 export const Product = styled.article`
@@ -26,11 +25,13 @@ export const Product = styled.article`
     }
 `
 export const PhotoContainer = styled.div`
+position: relative;
    border: 2px solid #16011d;
    border-radius: 3%;
    width: 100%;
    height: 80%;
    overflow: hidden;
+    z-index: 1;
 `
 export const PhotoProduct = styled.img`
    width: 100%;
@@ -56,4 +57,18 @@ export const ProductPrice = styled.p`
 export const ProductInstallments = styled.p`
    grid-area: 2/2/3/3;
    text-align: right;
+`
+export const Sale = styled.div`
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   width: 20%;
+   background-color: black;
+   color:#c61cff;
+   z-index: 2;
+   position: absolute;
+   top: 10%;
+   left: 0;
+   padding: 2%;
+   align-self: flex-start !important;
 `

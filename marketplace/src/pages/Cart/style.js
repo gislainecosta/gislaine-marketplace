@@ -5,7 +5,6 @@ export const Cart = styled.div`
    display: flex;
    flex-direction: column;
    padding: 1vw 0.1vw 2vw 0;
-   margin-left: 25%;
 `
 export const CartTitle = styled.p`
    text-align: center;
