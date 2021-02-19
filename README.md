@@ -13,8 +13,12 @@
 
 ## Como rodar (Otimizado para Desktop 💻):
 Para rodar esta página, siga os passos:
-1. Faça o clone do reposítorio
+1. Faça o clone do repositório
 2. Rode o comando yarn no terminal para instalar os pacotes
 3. Rode o comando yarn start para renderizar a aplicação.
 
 
+## Implementações futuras:
+1. Lógica dos Filtros e busca
+2. Testes
+3. Responsividade para mobile
